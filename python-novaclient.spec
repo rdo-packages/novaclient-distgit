@@ -1,7 +1,7 @@
 Name:             python-novaclient
 Epoch:            1
-Version:          2.17.0
-Release:          3%{?dist}
+Version:          2.18.1
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Nova
 
 Group:            Development/Languages
@@ -9,16 +9,8 @@ License:          ASL 2.0
 URL:              http://pypi.python.org/pypi/%{name}
 Source0:          http://pypi.python.org/packages/source/p/%{name}/%{name}-%{version}.tar.gz
 
-
-#
-# patches_base=2.17.0
-#
 Patch0001: 0001-Remove-runtime-dependency-on-python-pbr.patch
-Patch0002: 0002-Fix-session-handling-in-novaclient.patch
-Patch0003: 0003-Fix-authentication-bug-when-booting-an-server-in-V3.patch
-Patch0004: 0004-Nova-CLI-for-server-groups.patch
-Patch0005: 0005-Avoid-AttributeError-in-servers.Server.__repr__.patch
-Patch0006: 0006-Enable-delete-multiple-server-groups-in-one-request.patch
+Patch0002: 0002-Use-oslo.sphinx-instead-of-oslosphinx.patch
 
 BuildArch:        noarch
 BuildRequires:    python-setuptools
@@ -46,6 +38,7 @@ Summary:          Documentation for OpenStack Nova API Client
 Group:            Documentation
 
 BuildRequires:    python-sphinx
+BuildRequires:    python-oslo-sphinx
 
 %description      doc
 This is a client for the OpenStack Nova API. There's a Python API (the
@@ -59,10 +52,6 @@ This package contains auto-generated documentation.
 
 %patch0001 -p1
 %patch0002 -p1
-%patch0003 -p1
-%patch0004 -p1
-%patch0005 -p1
-%patch0006 -p1
 
 # We provide version like this in order to remove runtime dep on pbr.
 sed -i s/REDHATNOVACLIENTVERSION/%{version}/ novaclient/__init__.py
@@ -107,6 +96,11 @@ rm -fr html/.doctrees html/.buildinfo
 %doc html
 
 %changelog
+* Wed Aug 13 2014 Jakub Ruzicka <jruzicka@redhat.com> 1:2.18.1-1
+- Update to upstream 2.18.1
+- New Requires: python-oslo-sphinx
+- Use oslo.sphinx instead of oslosphinx
+
 * Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:2.17.0-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
