@@ -1,6 +1,6 @@
 Name:             python-novaclient
 Epoch:            1
-Version:          2.18.1
+Version:          2.20.0
 Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Nova
 
@@ -20,11 +20,13 @@ BuildRequires:    python-pbr
 
 Requires:         python-argparse
 Requires:         python-iso8601
+Requires:         python-oslo-utils
 Requires:         python-prettytable
 Requires:         python-requests
 Requires:         python-simplejson
 Requires:         python-six
 Requires:         python-babel
+Requires:         python-keystoneclient
 Requires:         python-keyring
 Requires:         python-setuptools
 
@@ -96,6 +98,10 @@ rm -fr html/.doctrees html/.buildinfo
 %doc html
 
 %changelog
+* Fri Oct 03 2014 Jakub Ruzicka <jruzicka@redhat.com> 1:2.20.0-1
+- Update to upstream 2.20.0
+- New Requires: python-oslo-utils, python-keystoneclient
+
 * Wed Aug 13 2014 Jakub Ruzicka <jruzicka@redhat.com> 1:2.18.1-1
 - Update to upstream 2.18.1
 - New Requires: python-oslo-sphinx

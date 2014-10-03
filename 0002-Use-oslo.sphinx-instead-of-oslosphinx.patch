@@ -1,4 +1,4 @@
-From fb03e461cbb26f7c561eba4814cc4631997f8107 Mon Sep 17 00:00:00 2001
+From 9b6037d02745342eb68b564f61c34bd908957ca3 Mon Sep 17 00:00:00 2001
 From: Jakub Ruzicka <jruzicka@redhat.com>
 Date: Wed, 13 Aug 2014 16:02:22 +0200
 Subject: [PATCH] Use oslo.sphinx instead of oslosphinx
@@ -8,15 +8,15 @@ Subject: [PATCH] Use oslo.sphinx instead of oslosphinx
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/doc/source/conf.py b/doc/source/conf.py
-index e37b8b8..81cb565 100644
+index d33aea2..e4d1b8f 100644
 --- a/doc/source/conf.py
 +++ b/doc/source/conf.py
 @@ -88,7 +88,7 @@ gen_ref("v3", "Version 3 API Reference",
  # Add any Sphinx extension module names here, as strings. They can be
  # extensions
  # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
--extensions = ['sphinx.ext.autodoc', 'sphinx.ext.intersphinx', 'oslosphinx']
-+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.intersphinx', 'oslo.sphinx']
+-extensions = ['sphinx.ext.autodoc', 'oslosphinx']
++extensions = ['sphinx.ext.autodoc', 'oslo.sphinx']
  
  # Add any paths that contain templates here, relative to this directory.
  templates_path = ['_templates']
