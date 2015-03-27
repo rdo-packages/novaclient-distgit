@@ -1,7 +1,7 @@
 Name:             python-novaclient
 Epoch:            1
 Version:          2.20.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Python API and CLI for OpenStack Nova
 
 Group:            Development/Languages
@@ -9,14 +9,13 @@ License:          ASL 2.0
 URL:              http://pypi.python.org/pypi/%{name}
 Source0:          http://pypi.python.org/packages/source/p/%{name}/%{name}-%{version}.tar.gz
 
-Patch0001: 0001-Remove-runtime-dependency-on-python-pbr.patch
-Patch0002: 0002-Use-oslo.sphinx-instead-of-oslosphinx.patch
-
 BuildArch:        noarch
 BuildRequires:    python-setuptools
 BuildRequires:    python2-devel
 BuildRequires:    python-d2to1
 BuildRequires:    python-pbr
+BuildRequires:    python-keystoneclient
+BuildRequires:    python-netifaces
 
 Requires:         python-argparse
 Requires:         python-iso8601
@@ -29,6 +28,8 @@ Requires:         python-babel
 Requires:         python-keystoneclient
 Requires:         python-keyring
 Requires:         python-setuptools
+Requires:         python-pbr
+Requires:         python-netifaces
 
 %description
 This is a client for the OpenStack Nova API. There's a Python API (the
@@ -51,12 +52,6 @@ This package contains auto-generated documentation.
 
 %prep
 %setup -q
-
-%patch0001 -p1
-%patch0002 -p1
-
-# We provide version like this in order to remove runtime dep on pbr.
-sed -i s/REDHATNOVACLIENTVERSION/%{version}/ novaclient/__init__.py
 
 # Remove bundled egg-info
 rm -rf python_novaclient.egg-info
@@ -98,6 +93,11 @@ rm -fr html/.doctrees html/.buildinfo
 %doc html
 
 %changelog
+* Fri Mar 27 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 1:2.20.0-2
+- Drop unneeded patches
+- New Requires: python-netifaces, python-pbr
+- Fix documentation build
+
 * Fri Oct 03 2014 Jakub Ruzicka <jruzicka@redhat.com> 1:2.20.0-1
 - Update to upstream 2.20.0
 - New Requires: python-oslo-utils, python-keystoneclient
