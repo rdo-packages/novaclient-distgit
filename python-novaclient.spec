@@ -1,7 +1,7 @@
 Name:             python-novaclient
 Epoch:            1
-Version:          2.20.0
-Release:          2%{?dist}
+Version:          2.23.0
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Nova
 
 Group:            Development/Languages
@@ -19,6 +19,8 @@ BuildRequires:    python-netifaces
 
 Requires:         python-argparse
 Requires:         python-iso8601
+Requires:         python-oslo-i18n
+Requires:         python-oslo-serialization
 Requires:         python-oslo-utils
 Requires:         python-prettytable
 Requires:         python-requests
@@ -60,10 +62,10 @@ rm -rf python_novaclient.egg-info
 rm -f {,test-}requirements.txt
 
 %build
-%{__python} setup.py build
+%{__python2} setup.py build
 
 %install
-%{__python} setup.py install -O1 --skip-build --root %{buildroot}
+%{__python2} setup.py install -O1 --skip-build --root %{buildroot}
 
 mkdir -p %{buildroot}%{_sysconfdir}/bash_completion.d
 install -pm 644 tools/nova.bash_completion \
@@ -84,8 +86,8 @@ rm -fr html/.doctrees html/.buildinfo
 %doc README.rst
 %doc LICENSE
 %{_bindir}/nova
-%{python_sitelib}/novaclient
-%{python_sitelib}/*.egg-info
+%{python2_sitelib}/novaclient
+%{python2_sitelib}/*.egg-info
 %{_sysconfdir}/bash_completion.d
 %{_mandir}/man1/nova.1.gz
 
@@ -93,6 +95,9 @@ rm -fr html/.doctrees html/.buildinfo
 %doc html
 
 %changelog
+* Wed Apr 01 2015 Haikel Guemar <hguemar@fedoraproject.org> 1:2.23.0-1
+- Update to upstream 2.23.0
+
 * Fri Mar 27 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 1:2.20.0-2
 - Drop unneeded patches
 - New Requires: python-netifaces, python-pbr
