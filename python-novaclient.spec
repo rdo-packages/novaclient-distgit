@@ -1,6 +1,6 @@
 Name:             python-novaclient
 Epoch:            1
-Version:          2.30.0
+Version:          2.30.1
 Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Nova
 
@@ -95,6 +95,9 @@ rm -fr html/.doctrees html/.buildinfo
 %doc html
 
 %changelog
+* Tue Oct 06 2015 Alan Pevec <alan.pevec@redhat.com> 1:2.30.1-1
+- Update to upstream 2.30.1
+
 * Mon Sep 21 2015 Alan Pevec <alan.pevec@redhat.com> 1:2.30.0-1
 - Update to upstream 2.30.0
 
