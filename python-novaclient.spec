@@ -1,7 +1,9 @@
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+
 Name:             python-novaclient
 Epoch:            1
-Version:          2.30.1
-Release:          2%{?dist}
+Version:          3.3.1
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Nova
 
 Group:            Development/Languages
@@ -10,28 +12,29 @@ URL:              http://pypi.python.org/pypi/%{name}
 Source0:          http://pypi.python.org/packages/source/p/%{name}/%{name}-%{version}.tar.gz
 
 BuildArch:        noarch
-BuildRequires:    python-setuptools
 BuildRequires:    python2-devel
 BuildRequires:    python-d2to1
-BuildRequires:    python-pbr
 BuildRequires:    python-keystoneclient
 BuildRequires:    python-netifaces
+BuildRequires:    python-pbr
+BuildRequires:    python-setuptools
 
 Requires:         python-argparse
+Requires:         python-babel
 Requires:         python-iso8601
+Requires:         python-keyring
+Requires:         python-keystoneauth1
+Requires:         python-keystoneclient
+Requires:         python-netifaces
 Requires:         python-oslo-i18n
 Requires:         python-oslo-serialization
 Requires:         python-oslo-utils
+Requires:         python-pbr
 Requires:         python-prettytable
 Requires:         python-requests
 Requires:         python-simplejson
 Requires:         python-six
-Requires:         python-babel
-Requires:         python-keystoneclient
-Requires:         python-keyring
 Requires:         python-setuptools
-Requires:         python-pbr
-Requires:         python-netifaces
 
 %description
 This is a client for the OpenStack Nova API. There's a Python API (the
@@ -53,7 +56,7 @@ the OpenStack Nova API.
 This package contains auto-generated documentation.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{upstream_version}
 
 # Remove bundled egg-info
 rm -rf python_novaclient.egg-info
@@ -95,145 +98,9 @@ rm -fr html/.doctrees html/.buildinfo
 %doc html
 
 %changelog
-* Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 1:2.30.1-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+* Fri Apr 15 2016 Haikel Guemar <hguemar@fedoraproject.org> 1:3.3.1-1
+- Update to 3.3.1
 
-* Tue Oct 06 2015 Alan Pevec <alan.pevec@redhat.com> 1:2.30.1-1
-- Update to upstream 2.30.1
+* Wed Mar 23 2016 Haikel Guemar <hguemar@fedoraproject.org> 1:3.3.0-
+- Update to 3.3.0
 
-* Mon Sep 21 2015 Alan Pevec <alan.pevec@redhat.com> 1:2.30.0-1
-- Update to upstream 2.30.0
-
-* Fri Sep 18 2015 Alan Pevec <alan.pevec@redhat.com> 1:2.29.0-1
-- Update to upstream 2.29.0
-
-* Fri Jul 24 2015 Parag Nemade <pnemade@redhat.com> 1:2.26.0-1
-- Update to upstream 2.26.0
-
-* Thu Jun 18 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:2.23.0-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
-
-* Wed Apr 01 2015 Haikel Guemar <hguemar@fedoraproject.org> 1:2.23.0-1
-- Update to upstream 2.23.0
-
-* Fri Mar 27 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 1:2.20.0-2
-- Drop unneeded patches
-- New Requires: python-netifaces, python-pbr
-- Fix documentation build
-
-* Fri Oct 03 2014 Jakub Ruzicka <jruzicka@redhat.com> 1:2.20.0-1
-- Update to upstream 2.20.0
-- New Requires: python-oslo-utils, python-keystoneclient
-
-* Wed Aug 13 2014 Jakub Ruzicka <jruzicka@redhat.com> 1:2.18.1-1
-- Update to upstream 2.18.1
-- New Requires: python-oslo-sphinx
-- Use oslo.sphinx instead of oslosphinx
-
-* Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:2.17.0-3
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
-
-* Tue May 27 2014 Jakub Ruzicka <jruzicka@redhat.com> 1:2.17.0-2
-- Selective backports (server groups and more)
-- Nova CLI for server groups (rhbz#1101014)
-- Enable delete multiple server groups in one request
-- Fix session handling in novaclient
-- Fix authentication bug when booting an server in V3
-- Avoid AttributeError in servers.Server.__repr__
-
-* Tue Mar 25 2014 Jakub Ruzicka <jruzicka@redhat.com> 1:2.17.0-1
-- Update to upstream 2.17.0
-
-* Wed Feb 26 2014 Jakub Ruzicka <jruzicka@redhat.com> 2.16.0-2
-- Update to upstream 2.16.0
-
-* Thu Sep 19 2013 Jakub Ruzicka <jruzicka@redhat.com> 
-- Update to upstream 2.15.0
-- Add python-babel dependency
-- Nuke pbr deps handling in patch instead of this spec file
-
-* Wed Aug 07 2013 Jakub Ruzicka <jruzicka@redhat.com> - 1:2.14.1-1
-- Update to upstream version 2.14.1.
-- New build requires: python-d2to1, python-pbr
-- New require: python-six
-- Remove runtime dependency on python-pbr.
-- Include new manpage.
-
-* Sun Aug 04 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:2.13.0-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
-
-* Wed Apr 03 2013 Jakub Ruzicka <jruzicka@redhat.com> 2.13.0-1
-- Update to upstream version 2.13.0. (#921769)
-- Update requires from tools/pip-requires.
-- versioninfo is gone from tarball, generate it.
-
-* Fri Mar 08 2013 Alan Pevec <apevec@redhat.com> 2.11.1-2
-- Add dependency on python-requests and python-keyring (#919337)
-
-* Thu Mar 07 2013 Alan Pevec <apevec@redhat.com> 2.11.1-1
-- Update to latest upstream release
-
-* Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:2.10.0-3
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
-
-* Fri Dec 21 2012 Alan Pevec <apevec@redhat.com> 2.10.0-2
-- Include bash_completion file (#872544) (Alvaro Lopez Ortega)
-- Add dependency on python-iso8601 (#881515)
-
-* Mon Dec 03 2012 Alan Pevec <apevec@redhat.com> 2.10.0-1
-- Update to latest upstream release
-
-* Thu Sep 27 2012 Pádraig Brady <P@draigBrady.com> 1:2.9.0-1
-- Update to latest upstream release (aligned with Folsom)
-
-* Tue Sep 25 2012 Pádraig Brady <P@draigBrady.com> 1:2.8.0.26-2
-- Update to latest upstream release
-
-* Wed Aug 22 2012 Pádraig Brady <P@draigBrady.com> 2012.2-0.3.f1
-- Add dependency on python-setuptools (#849477)
-
-* Sat Jul 21 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2012.2-0.2.f1
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
-
-* Wed Jun 13 2012 Pádraig Brady <P@draigBrady.com> 2012.2-0.1.f1
-- Update to folsom-1 release
-
-* Sun Apr  8 2012 Pádraig Brady <P@draigBrady.com> 2012.1-1
-- Update to essex release
-- Include LICENSE (#732695)
-
-* Thu Mar 22 2012 Pádraig Brady <P@draigBrady.com> 2012.1-0.4.rc1
-- Avoid a horizon issue trying to write to /var/www (#801202)
-
-* Wed Mar 21 2012 Pádraig Brady <P@draigBrady.com> 2012.1-0.3.rc1
-- Update to essex-rc1
-
-* Tue Mar 06 2012 Alan Pevec <apevec@redhat.com> 2012.1-0.2.e4
-- Update to essex-4
-
-* Fri Jan 27 2012 Pádraig Brady <P@draigBrady.com> - 2012.1-0.1.e3
-- Update to essex milestone 3
-
-* Sat Jan 14 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.6.1-0.5.89bzr
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
-
-* Wed Aug 24 2011 Mark McLoughlin <markmc@redhat.com> - 2.6.1-0.4.89bzr
-- Update to latest upstream snapshot
-- Don't use %%setup -n (#732694)
-
-* Mon Aug 22 2011 Mark McLoughlin <markmc@redhat.com> - 2.6.1-0.3.83bzr
-- Remove python-devel BR
-- Remove the openstack-novaclient sub-package
-
-* Fri Aug 19 2011 Mark McLoughlin <markmc@redhat.com> - 2.6.1-0.2.83bzr
-- Remove argparse from egg requires.txt; no egg info for argparse available
-
-* Wed Aug 17 2011 Mark McLoughlin <markmc@redhat.com> - 2.6.1-0.1.83bz
-- Update to latest upstream
-
-* Wed Aug 10 2011 Mark McLoughlin <markmc@redhat.com> - 2.6.1-0.1.74bzr
-- Update to latest upstream
-
-* Mon Aug  8 2011 Mark McLoughlin <markmc@redhat.com> - 2.5.1-1
-- Initial package from Alexander Sakhnov <asakhnov@mirantis.com>
-  with cleanups by Mark McLoughlin
