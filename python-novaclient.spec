@@ -96,3 +96,4 @@ rm -fr html/.doctrees html/.buildinfo
 %doc html
 
 %changelog
+# Test do not merge
