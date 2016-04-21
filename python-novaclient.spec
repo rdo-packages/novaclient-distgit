@@ -95,3 +95,4 @@ rm -fr html/.doctrees html/.buildinfo
 %doc html
 
 %changelog
+# Test dmsimard do not merge
