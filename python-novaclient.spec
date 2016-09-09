@@ -8,8 +8,8 @@
 
 Name:             python-novaclient
 Epoch:            1
-Version:          XXX
-Release:          XXX
+Version:          6.0.0
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Nova
 License:          ASL 2.0
 URL:              https://launchpad.net/python-novaclient
@@ -161,3 +161,6 @@ rm -fr html/.doctrees html/.buildinfo
 %license LICENSE
 
 %changelog
+* Sat Sep 10 2016 Haikel Guemar <hguemar@fedoraproject.org> 1:6.0.0-1
+- Update to 6.0.0
+
