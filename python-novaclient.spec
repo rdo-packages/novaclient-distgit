@@ -8,8 +8,8 @@
 
 Name:             python-novaclient
 Epoch:            1
-Version:          3.3.1
-Release:          2%{?dist}
+Version:          3.3.2
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Nova
 License:          ASL 2.0
 URL:              https://launchpad.net/python-novaclient
@@ -161,6 +161,9 @@ rm -fr html/.doctrees html/.buildinfo
 %license LICENSE
 
 %changelog
+* Thu Oct 13 2016 Alan Pevec <alan.pevec@redhat.com> 1:3.3.2-1
+- Update to 3.3.2
+
 * Tue Jul 26 2016 Haïkel Guémar <hguemar@fedoraproject.org> - 1:3.3.1-2
 - Add python3 subpackage
 
