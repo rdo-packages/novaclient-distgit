@@ -1,6 +1,6 @@
 # UUID                                  	Group Name
 #
 510848b93da6a46f9f1980fcb645a8055a4bad32	openstack/novaclient-distgit-ptl
-c8313642cc7cecda14d5cbee73dec3790f413acd	openstack/novaclient-distgit-core
 63673ea7f2ae6a5666566b1ea9f14e473d00f5a9	rdo-core
+c8313642cc7cecda14d5cbee73dec3790f413acd	openstack/novaclient-distgit-core
 global:Registered-Users                 	Registered Users
