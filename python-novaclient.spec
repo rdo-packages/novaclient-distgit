@@ -14,6 +14,7 @@ Summary:          Python API and CLI for OpenStack Nova
 License:          ASL 2.0
 URL:              https://launchpad.net/python-novaclient
 Source0:          https://pypi.io/packages/source/p/%{name}/%{name}-%{version}.tar.gz
+
 BuildArch:        noarch
 
 %description
