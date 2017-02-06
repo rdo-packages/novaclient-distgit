@@ -31,10 +31,10 @@ BuildRequires:    python-setuptools
 
 Requires:         python-babel
 Requires:         python-iso8601
-Requires:         python-keystoneauth1
-Requires:         python-oslo-i18n
-Requires:         python-oslo-serialization
-Requires:         python-oslo-utils
+Requires:         python-keystoneauth1 >= 2.18.0
+Requires:         python-oslo-i18n >= 2.1.0
+Requires:         python-oslo-serialization >= 1.10.0
+Requires:         python-oslo-utils >= 3.18.0
 Requires:         python-pbr
 Requires:         python-prettytable
 Requires:         python-requests
@@ -58,10 +58,10 @@ BuildRequires:    python3-setuptools
 
 Requires:         python3-babel
 Requires:         python3-iso8601
-Requires:         python3-keystoneauth1
-Requires:         python3-oslo-i18n
-Requires:         python3-oslo-serialization
-Requires:         python3-oslo-utils
+Requires:         python3-keystoneauth1 >= 2.18.0
+Requires:         python3-oslo-i18n >= 2.1.0
+Requires:         python3-oslo-serialization >= 1.10.0
+Requires:         python3-oslo-utils >= 3.18.0
 Requires:         python3-pbr
 Requires:         python3-prettytable
 Requires:         python3-requests
