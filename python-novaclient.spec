@@ -27,6 +27,7 @@ Summary:          Python API and CLI for OpenStack Nova
 
 BuildRequires:    python2-devel
 BuildRequires:    python-pbr
+BuildRequires:    git
 BuildRequires:    python-setuptools
 
 Requires:         python-babel
@@ -79,7 +80,11 @@ the OpenStack Nova API.
 Summary:          Documentation for OpenStack Nova API Client
 
 BuildRequires:    python-sphinx
-BuildRequires:    python-oslo-sphinx
+BuildRequires:    python-openstackdocstheme
+BuildRequires:    python-oslo-utils
+BuildRequires:    python-keystoneauth1
+BuildRequires:    python-oslo-serialization
+BuildRequires:    python-prettytable
 
 %description      doc
 This is a client for the OpenStack Nova API. There's a Python API (the
@@ -89,7 +94,7 @@ the OpenStack Nova API.
 This package contains auto-generated documentation.
 
 %prep
-%setup -q -n %{name}-%{upstream_version}
+%autosetup -n %{name}-%{upstream_version} -S git
 
 # Let RPM handle the requirements
 rm -f {,test-}requirements.txt
@@ -122,14 +127,13 @@ install -pm 644 tools/nova.bash_completion \
 # Delete tests
 rm -fr %{buildroot}%{python2_sitelib}/novaclient/tests
 
-export PYTHONPATH="$( pwd ):$PYTHONPATH"
-sphinx-build -b html doc/source html
-sphinx-build -b man doc/source man
+%{__python2} setup.py build_sphinx -b html
+%{__python2} setup.py build_sphinx -b man
 
-install -p -D -m 644 man/nova.1 %{buildroot}%{_mandir}/man1/nova.1
+install -p -D -m 644 doc/build/man/nova.1 %{buildroot}%{_mandir}/man1/nova.1
 
 # Fix hidden-file-or-dir warnings
-rm -fr html/.doctrees html/.buildinfo
+rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo
 
 %files -n python2-%{sname}
 %license LICENSE
@@ -156,7 +160,7 @@ rm -fr html/.doctrees html/.buildinfo
 %endif
 
 %files doc
-%doc html
+%doc doc/build/html
 %license LICENSE
 
 %changelog
