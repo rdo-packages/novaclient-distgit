@@ -160,3 +160,4 @@ rm -fr html/.doctrees html/.buildinfo
 %license LICENSE
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/python-novaclient/commit/?id=a473c81c0a2a270af0a9606a0811cff063c577c6
