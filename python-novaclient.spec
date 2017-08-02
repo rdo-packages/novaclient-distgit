@@ -30,18 +30,17 @@ BuildRequires:    python-pbr
 BuildRequires:    git
 BuildRequires:    python-setuptools
 
-Requires:         python-babel
-Requires:         python-iso8601
+Requires:         python-babel >= 2.3.4
+Requires:         python-iso8601 >= 0.1.11
 Requires:         python-keystoneauth1 >= 2.18.0
 Requires:         python-oslo-i18n >= 2.1.0
 Requires:         python-oslo-serialization >= 1.10.0
 Requires:         python-oslo-utils >= 3.18.0
-Requires:         python-pbr
-Requires:         python-prettytable
-Requires:         python-requests
-Requires:         python-simplejson
-Requires:         python-six
-Requires:         python-setuptools
+Requires:         python-pbr >= 2.0.0
+Requires:         python-prettytable >= 0.7.1
+Requires:         python-requests >= 2.14.2
+Requires:         python-simplejson >= 2.2.0
+Requires:         python-six >= 1.9.0
 
 %description -n python2-%{sname}
 This is a client for the OpenStack Nova API. There's a Python API (the
@@ -57,18 +56,17 @@ BuildRequires:    python3-devel
 BuildRequires:    python3-pbr
 BuildRequires:    python3-setuptools
 
-Requires:         python3-babel
-Requires:         python3-iso8601
+Requires:         python3-babel >= 2.3.4
+Requires:         python3-iso8601 >= 0.1.11
 Requires:         python3-keystoneauth1 >= 2.18.0
 Requires:         python3-oslo-i18n >= 2.1.0
 Requires:         python3-oslo-serialization >= 1.10.0
 Requires:         python3-oslo-utils >= 3.18.0
-Requires:         python3-pbr
-Requires:         python3-prettytable
-Requires:         python3-requests
-Requires:         python3-simplejson
-Requires:         python3-six
-Requires:         python3-setuptools
+Requires:         python3-pbr >= 2.0.0
+Requires:         python3-prettytable >= 0.7.1
+Requires:         python3-requests >= 2.14.2
+Requires:         python3-simplejson >= 2.2.0
+Requires:         python3-six >= 1.9.0
 
 %description -n python3-%{sname}
 This is a client for the OpenStack Nova API. There's a Python API (the
