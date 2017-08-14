@@ -8,8 +8,8 @@
 
 Name:             python-novaclient
 Epoch:            1
-Version:          XXX
-Release:          XXX
+Version:          9.1.0
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Nova
 License:          ASL 2.0
 URL:              https://launchpad.net/python-novaclient
@@ -162,3 +162,6 @@ rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo
 %license LICENSE
 
 %changelog
+* Mon Aug 14 2017 Alfredo Moralejo <amoralej@redhat.com> 1:9.1.0-1
+- Update to 9.1.0
+
