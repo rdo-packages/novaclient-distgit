@@ -40,7 +40,6 @@ Requires:         python-oslo-serialization >= 1.10.0
 Requires:         python-oslo-utils >= 3.20.0
 Requires:         python-pbr >= 2.0.0
 Requires:         python-prettytable >= 0.7.1
-Requires:         python-requests
 Requires:         python-simplejson >= 2.2.0
 Requires:         python-six >= 1.9.0
 
@@ -66,7 +65,6 @@ Requires:         python3-oslo-serialization >= 1.10.0
 Requires:         python3-oslo-utils >= 3.20.0
 Requires:         python3-pbr >= 2.0.0
 Requires:         python3-prettytable >= 0.7.1
-Requires:         python3-requests
 Requires:         python3-simplejson >= 2.2.0
 Requires:         python3-six >= 1.9.0
 
