@@ -16,6 +16,9 @@ URL:              https://launchpad.net/python-novaclient
 Source0:          https://pypi.io/packages/source/p/%{name}/%{name}-%{version}.tar.gz
 BuildArch:        noarch
 
+BuildRequires:  git
+BuildRequires:  openstack-macros
+
 %description
 This is a client for the OpenStack Nova API. There's a Python API (the
 novaclient module), and a command-line script (nova). Each implements 100% of
@@ -27,7 +30,6 @@ Summary:          Python API and CLI for OpenStack Nova
 
 BuildRequires:    python2-devel
 BuildRequires:    python-pbr
-BuildRequires:    git
 BuildRequires:    python-setuptools
 
 Requires:         python-babel >= 2.3.4
@@ -95,7 +97,7 @@ This package contains auto-generated documentation.
 %autosetup -n %{name}-%{upstream_version} -S git
 
 # Let RPM handle the requirements
-rm -f {,test-}requirements.txt
+%py_req_cleanup
 
 %build
 %py2_build
