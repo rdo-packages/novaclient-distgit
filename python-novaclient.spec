@@ -6,6 +6,11 @@
 %global with_python3 1
 %endif
 
+%global common_desc \
+This is a client for the OpenStack Nova API. There's a Python API (the \
+novaclient module), and a command-line script (nova). Each implements 100% of \
+the OpenStack Nova API.
+
 Name:             python-novaclient
 Epoch:            1
 Version:          XXX
@@ -20,9 +25,7 @@ BuildRequires:  git
 BuildRequires:  openstack-macros
 
 %description
-This is a client for the OpenStack Nova API. There's a Python API (the
-novaclient module), and a command-line script (nova). Each implements 100% of
-the OpenStack Nova API.
+%{common_desc}
 
 %package -n python2-%{sname}
 Summary:          Python API and CLI for OpenStack Nova
@@ -45,9 +48,7 @@ Requires:         python-simplejson >= 2.2.0
 Requires:         python-six >= 1.9.0
 
 %description -n python2-%{sname}
-This is a client for the OpenStack Nova API. There's a Python API (the
-novaclient module), and a command-line script (nova). Each implements 100% of
-the OpenStack Nova API.
+%{common_desc}
 
 %if 0%{?with_python3}
 %package -n python3-%{sname}
@@ -71,9 +72,7 @@ Requires:         python3-simplejson >= 2.2.0
 Requires:         python3-six >= 1.9.0
 
 %description -n python3-%{sname}
-This is a client for the OpenStack Nova API. There's a Python API (the
-novaclient module), and a command-line script (nova). Each implements 100% of
-the OpenStack Nova API.
+%{common_desc}
 %endif
 
 %package doc
@@ -87,9 +86,7 @@ BuildRequires:    python-oslo-serialization
 BuildRequires:    python-prettytable
 
 %description      doc
-This is a client for the OpenStack Nova API. There's a Python API (the
-novaclient module), and a command-line script (nova). Each implements 100% of
-the OpenStack Nova API.
+%{common_desc}
 
 This package contains auto-generated documentation.
 
