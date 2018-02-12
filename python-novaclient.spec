@@ -32,19 +32,19 @@ Summary:          Python API and CLI for OpenStack Nova
 %{?python_provide:%python_provide python2-novaclient}
 
 BuildRequires:    python2-devel
-BuildRequires:    python-pbr
-BuildRequires:    python-setuptools
+BuildRequires:    python2-pbr
+BuildRequires:    python2-setuptools
 
-Requires:         python-babel >= 2.3.4
-Requires:         python-iso8601 >= 0.1.11
-Requires:         python-keystoneauth1 >= 3.1.0
-Requires:         python-oslo-i18n >= 2.1.0
-Requires:         python-oslo-serialization >= 1.10.0
-Requires:         python-oslo-utils >= 3.20.0
-Requires:         python-pbr >= 2.0.0
-Requires:         python-prettytable >= 0.7.1
-Requires:         python-simplejson >= 2.2.0
-Requires:         python-six >= 1.9.0
+Requires:         python2-babel >= 2.3.4
+Requires:         python2-iso8601 >= 0.1.11
+Requires:         python2-keystoneauth1 >= 3.3.0
+Requires:         python2-oslo-i18n >= 3.15.3
+Requires:         python2-oslo-serialization >= 2.18.0
+Requires:         python2-oslo-utils >= 3.33.0
+Requires:         python2-pbr >= 2.0.0
+Requires:         python2-prettytable >= 0.7.1
+Requires:         python-simplejson >= 3.5.1
+Requires:         python2-six >= 1.10.0
 
 %description -n python2-%{sname}
 %{common_desc}
@@ -60,14 +60,14 @@ BuildRequires:    python3-setuptools
 
 Requires:         python3-babel >= 2.3.4
 Requires:         python3-iso8601 >= 0.1.11
-Requires:         python3-keystoneauth1 >= 3.1.0
-Requires:         python3-oslo-i18n >= 2.1.0
-Requires:         python3-oslo-serialization >= 1.10.0
-Requires:         python3-oslo-utils >= 3.20.0
+Requires:         python3-keystoneauth1 >= 3.3.0
+Requires:         python3-oslo-i18n >= 3.15.3
+Requires:         python3-oslo-serialization >= 2.18.0
+Requires:         python3-oslo-utils >= 3.33.0
 Requires:         python3-pbr >= 2.0.0
 Requires:         python3-prettytable >= 0.7.1
-Requires:         python3-simplejson >= 2.2.0
-Requires:         python3-six >= 1.9.0
+Requires:         python3-simplejson >= 3.5.1
+Requires:         python3-six >= 1.10.0
 
 %description -n python3-%{sname}
 %{common_desc}
@@ -76,12 +76,12 @@ Requires:         python3-six >= 1.9.0
 %package doc
 Summary:          Documentation for OpenStack Nova API Client
 
-BuildRequires:    python-sphinx
-BuildRequires:    python-openstackdocstheme
-BuildRequires:    python-oslo-utils
-BuildRequires:    python-keystoneauth1
-BuildRequires:    python-oslo-serialization
-BuildRequires:    python-prettytable
+BuildRequires:    python2-sphinx
+BuildRequires:    python2-openstackdocstheme
+BuildRequires:    python2-oslo-utils
+BuildRequires:    python2-keystoneauth1
+BuildRequires:    python2-oslo-serialization
+BuildRequires:    python2-prettytable
 
 %description      doc
 %{common_desc}
