@@ -8,7 +8,7 @@
 
 Name:             python-novaclient
 Epoch:            1
-Version:          9.1.1
+Version:          9.1.2
 Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Nova
 License:          ASL 2.0
@@ -162,6 +162,9 @@ rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo
 %license LICENSE
 
 %changelog
+* Mon Apr 30 2018 RDO <dev@lists.rdoproject.org> 1:9.1.2-1
+- Update to 9.1.2
+
 * Fri Oct 06 2017 rdo-trunk <javier.pena@redhat.com> 1:9.1.1-1
 - Update to 9.1.1
 
