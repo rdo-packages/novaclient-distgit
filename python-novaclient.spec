@@ -1,6 +1,7 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global sname novaclient
+%global with_doc 1
 
 %if 0%{?fedora}
 %global with_python3 1
@@ -73,10 +74,12 @@ Requires:         python3-six >= 1.10.0
 %{common_desc}
 %endif
 
+%if 0%{?with_doc}
 %package doc
 Summary:          Documentation for OpenStack Nova API Client
 
 BuildRequires:    python2-sphinx
+BuildRequires:    python2-sphinxcontrib-apidoc
 BuildRequires:    python2-openstackdocstheme
 BuildRequires:    python2-oslo-utils
 BuildRequires:    python2-keystoneauth1
@@ -85,6 +88,7 @@ BuildRequires:    python2-prettytable
 
 %description      doc
 %{common_desc}
+%endif
 
 This package contains auto-generated documentation.
 
@@ -122,13 +126,15 @@ install -pm 644 tools/nova.bash_completion \
 # Delete tests
 rm -fr %{buildroot}%{python2_sitelib}/novaclient/tests
 
-%{__python2} setup.py build_sphinx -b html
-%{__python2} setup.py build_sphinx -b man
+%if 0%{?with_doc}
+sphinx-build -b html doc/source doc/build/html
+sphinx-build -b man doc/source doc/build/man
 
 install -p -D -m 644 doc/build/man/nova.1 %{buildroot}%{_mandir}/man1/nova.1
 
 # Fix hidden-file-or-dir warnings
-rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo
+rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo doc/build/html/.htaccess
+%endif
 
 %files -n python2-%{sname}
 %license LICENSE
@@ -149,13 +155,17 @@ rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo
 %{python3_sitelib}/%{sname}
 %{python3_sitelib}/*.egg-info
 %{_sysconfdir}/bash_completion.d
+%if 0%{?with_doc}
 %{_mandir}/man1/nova.1.gz
+%endif
 %{_bindir}/nova-3
 %{_bindir}/nova-%{python3_version}
 %endif
 
+%if 0%{?with_doc}
 %files doc
 %doc doc/build/html
 %license LICENSE
+%endif
 
 %changelog
