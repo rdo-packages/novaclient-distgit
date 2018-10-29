@@ -142,7 +142,9 @@ rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo doc/build/html/.htacce
 %{python2_sitelib}/%{sname}
 %{python2_sitelib}/*.egg-info
 %{_sysconfdir}/bash_completion.d
+%if 0%{?with_doc}
 %{_mandir}/man1/nova.1.gz
+%endif
 %{_bindir}/nova
 %{_bindir}/nova-2
 %{_bindir}/nova-%{python2_version}
