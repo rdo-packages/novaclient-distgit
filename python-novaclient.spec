@@ -21,8 +21,8 @@ the OpenStack Nova API.
 
 Name:             python-novaclient
 Epoch:            1
-Version:          XXX
-Release:          XXX
+Version:          13.0.0
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Nova
 License:          ASL 2.0
 URL:              https://launchpad.net/%{name}
@@ -134,3 +134,6 @@ rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo doc/build/html/.htacce
 %endif
 
 %changelog
+* Mon Mar 11 2019 RDO <dev@lists.rdoproject.org> 1:13.0.0-1
+- Update to 13.0.0
+
