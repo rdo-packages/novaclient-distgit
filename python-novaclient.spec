@@ -48,7 +48,7 @@ BuildRequires:    python%{pyver}-setuptools
 
 Requires:         python%{pyver}-babel >= 2.3.4
 Requires:         python%{pyver}-iso8601 >= 0.1.11
-Requires:         python%{pyver}-keystoneauth1 >= 3.4.0
+Requires:         python%{pyver}-keystoneauth1 >= 3.5.0
 Requires:         python%{pyver}-oslo-i18n >= 3.15.3
 Requires:         python%{pyver}-oslo-serialization >= 2.18.0
 Requires:         python%{pyver}-oslo-utils >= 3.33.0
