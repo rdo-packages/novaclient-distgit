@@ -62,7 +62,6 @@ Requires:         python-simplejson >= 3.5.1
 Requires:         python%{pyver}-simplejson >= 3.5.1
 %endif
 
-
 %description -n python%{pyver}-%{sname}
 %{common_desc}
 
@@ -80,9 +79,9 @@ BuildRequires:    python%{pyver}-prettytable
 
 %description      doc
 %{common_desc}
-%endif
 
 This package contains auto-generated documentation.
+%endif
 
 %prep
 %autosetup -n %{name}-%{upstream_version} -S git
