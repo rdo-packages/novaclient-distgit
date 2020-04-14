@@ -54,12 +54,10 @@ Requires:         python%{pyver}-oslo-serialization >= 2.18.0
 Requires:         python%{pyver}-oslo-utils >= 3.33.0
 Requires:         python%{pyver}-pbr >= 2.0.0
 Requires:         python%{pyver}-prettytable >= 0.7.2
-Requires:         python%{pyver}-six >= 1.10.0
 # Handle python2 exception
 %if %{pyver} == 2
 Requires:         python-simplejson >= 3.5.1
 %else
-Requires:         python%{pyver}-simplejson >= 3.5.1
 %endif
 
 %description -n python%{pyver}-%{sname}
