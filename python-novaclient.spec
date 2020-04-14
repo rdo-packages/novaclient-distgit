@@ -1,14 +1,3 @@
-# Macros for py2/py3 compatibility
-%if 0%{?fedora} || 0%{?rhel} > 7
-%global pyver %{python3_pkgversion}
-%else
-%global pyver 2
-%endif
-%global pyver_bin python%{pyver}
-%global pyver_sitelib %python%{pyver}_sitelib
-%global pyver_install %py%{pyver}_install
-%global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global sname novaclient
@@ -35,47 +24,39 @@ BuildRequires:  openstack-macros
 %description
 %{common_desc}
 
-%package -n python%{pyver}-%{sname}
+%package -n python3-%{sname}
 Summary:          Python API and CLI for OpenStack Nova
-%{?python_provide:%python_provide python%{pyver}-novaclient}
-%if %{pyver} == 3
+%{?python_provide:%python_provide python3-novaclient}
 Obsoletes: python2-%{sname} < %{version}-%{release}
-%endif
 
-BuildRequires:    python%{pyver}-devel
-BuildRequires:    python%{pyver}-pbr
-BuildRequires:    python%{pyver}-setuptools
+BuildRequires:    python3-devel
+BuildRequires:    python3-pbr
+BuildRequires:    python3-setuptools
 
-Requires:         python%{pyver}-babel >= 2.3.4
-Requires:         python%{pyver}-iso8601 >= 0.1.11
-Requires:         python%{pyver}-keystoneauth1 >= 3.5.0
-Requires:         python%{pyver}-oslo-i18n >= 3.15.3
-Requires:         python%{pyver}-oslo-serialization >= 2.18.0
-Requires:         python%{pyver}-oslo-utils >= 3.33.0
-Requires:         python%{pyver}-pbr >= 2.0.0
-Requires:         python%{pyver}-prettytable >= 0.7.2
-Requires:         python%{pyver}-six >= 1.10.0
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:         python-simplejson >= 3.5.1
-%else
-Requires:         python%{pyver}-simplejson >= 3.5.1
-%endif
+Requires:         python3-babel >= 2.3.4
+Requires:         python3-iso8601 >= 0.1.11
+Requires:         python3-keystoneauth1 >= 3.5.0
+Requires:         python3-oslo-i18n >= 3.15.3
+Requires:         python3-oslo-serialization >= 2.18.0
+Requires:         python3-oslo-utils >= 3.33.0
+Requires:         python3-pbr >= 2.0.0
+Requires:         python3-prettytable >= 0.7.2
+Requires:         python3-simplejson >= 3.5.1
 
-%description -n python%{pyver}-%{sname}
+%description -n python3-%{sname}
 %{common_desc}
 
 %if 0%{?with_doc}
 %package doc
 Summary:          Documentation for OpenStack Nova API Client
 
-BuildRequires:    python%{pyver}-sphinx
-BuildRequires:    python%{pyver}-sphinxcontrib-apidoc
-BuildRequires:    python%{pyver}-openstackdocstheme
-BuildRequires:    python%{pyver}-oslo-utils
-BuildRequires:    python%{pyver}-keystoneauth1
-BuildRequires:    python%{pyver}-oslo-serialization
-BuildRequires:    python%{pyver}-prettytable
+BuildRequires:    python3-sphinx
+BuildRequires:    python3-sphinxcontrib-apidoc
+BuildRequires:    python3-openstackdocstheme
+BuildRequires:    python3-oslo-utils
+BuildRequires:    python3-keystoneauth1
+BuildRequires:    python3-oslo-serialization
+BuildRequires:    python3-prettytable
 
 %description      doc
 %{common_desc}
@@ -90,23 +71,23 @@ This package contains auto-generated documentation.
 %py_req_cleanup
 
 %build
-%{pyver_build}
+%{py3_build}
 
 %install
-%{pyver_install}
+%{py3_install}
 # Create a versioned binary for backwards compatibility until everything is pure py3
-ln -s nova %{buildroot}%{_bindir}/nova-%{pyver}
+ln -s nova %{buildroot}%{_bindir}/nova-3
 
 mkdir -p %{buildroot}%{_sysconfdir}/bash_completion.d
 install -pm 644 tools/nova.bash_completion \
     %{buildroot}%{_sysconfdir}/bash_completion.d/nova
 
 # Delete tests
-rm -fr %{buildroot}%{pyver_sitelib}/novaclient/tests
+rm -fr %{buildroot}%{python3_sitelib}/novaclient/tests
 
 %if 0%{?with_doc}
-sphinx-build-%{pyver} -b html doc/source doc/build/html
-sphinx-build-%{pyver} -b man doc/source doc/build/man
+sphinx-build -b html doc/source doc/build/html
+sphinx-build -b man doc/source doc/build/man
 
 install -p -D -m 644 doc/build/man/nova.1 %{buildroot}%{_mandir}/man1/nova.1
 
@@ -114,17 +95,17 @@ install -p -D -m 644 doc/build/man/nova.1 %{buildroot}%{_mandir}/man1/nova.1
 rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo doc/build/html/.htaccess
 %endif
 
-%files -n python%{pyver}-%{sname}
+%files -n python3-%{sname}
 %license LICENSE
 %doc README.rst
-%{pyver_sitelib}/%{sname}
-%{pyver_sitelib}/*.egg-info
+%{python3_sitelib}/%{sname}
+%{python3_sitelib}/*.egg-info
 %{_sysconfdir}/bash_completion.d
 %if 0%{?with_doc}
 %{_mandir}/man1/nova.1.gz
 %endif
 %{_bindir}/nova
-%{_bindir}/nova-%{pyver}
+%{_bindir}/nova-3
 
 %if 0%{?with_doc}
 %files doc
