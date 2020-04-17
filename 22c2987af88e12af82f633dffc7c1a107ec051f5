@@ -22,6 +22,30 @@
       "revId": "22c2987af88e12af82f633dffc7c1a107ec051f5",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08425e78_178e6be3",
+        "filename": "python-novaclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2020-04-17T14:53:18Z",
+      "side": 0,
+      "message": "They don\u0027t use it anymore [1]. It was used in the past\nfor python \u003c 2.7 [2].\nI did some changes manually with some sed commands, which led to not having removed the overall if-else conditional statement.\n(I had to reverse-engineer my brain process to write those lines Oo ; note to myself: reply to a comment asap)\n\n[1] https://github.com/openstack/python-novaclient/search?q\u003dsimplejson\u0026type\u003dCode\n[2] https://github.com/openstack/python-novaclient/commit/8e0e25f6ceac9525cf0fd6fc36e6295874081d5a",
+      "parentUuid": "a54433db_be142e63",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 52
+      },
+      "revId": "22c2987af88e12af82f633dffc7c1a107ec051f5",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
