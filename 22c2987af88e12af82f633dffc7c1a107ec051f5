@@ -46,6 +46,30 @@
       "revId": "22c2987af88e12af82f633dffc7c1a107ec051f5",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af965e0f_9bb436fb",
+        "filename": "python-novaclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2020-04-20T10:59:37Z",
+      "side": 0,
+      "message": "ohhk, then i think we can cleanup completely. i see in PS3 u didn\u0027t removed it, any reason to keep that still?",
+      "parentUuid": "08425e78_178e6be3",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 52
+      },
+      "revId": "22c2987af88e12af82f633dffc7c1a107ec051f5",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
