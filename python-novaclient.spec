@@ -21,7 +21,7 @@ the OpenStack Nova API.
 
 Name:             python-novaclient
 Epoch:            1
-Version:          15.1.0
+Version:          15.1.1
 Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Nova
 License:          ASL 2.0
@@ -133,6 +133,9 @@ rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo doc/build/html/.htacce
 %endif
 
 %changelog
+* Mon Jun 29 2020 RDO <dev@lists.rdoproject.org> 1:15.1.1-1
+- Update to 15.1.1
+
 * Thu Sep 19 2019 RDO <dev@lists.rdoproject.org> 1:15.1.0-1
 - Update to 15.1.0
 
