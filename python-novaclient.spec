@@ -33,7 +33,6 @@ BuildRequires:    python3-devel
 BuildRequires:    python3-pbr
 BuildRequires:    python3-setuptools
 
-Requires:         python3-babel >= 2.3.4
 Requires:         python3-iso8601 >= 0.1.11
 Requires:         python3-keystoneauth1 >= 3.5.0
 Requires:         python3-oslo-i18n >= 3.15.3
@@ -41,6 +40,7 @@ Requires:         python3-oslo-serialization >= 2.18.0
 Requires:         python3-oslo-utils >= 3.33.0
 Requires:         python3-pbr >= 2.0.0
 Requires:         python3-prettytable >= 0.7.2
+Requires:         python3-stevedore >= 2.0.1
 
 %description -n python3-%{sname}
 %{common_desc}
