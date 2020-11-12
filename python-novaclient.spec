@@ -18,7 +18,7 @@ URL:              https://launchpad.net/%{name}
 Source0:          https://pypi.io/packages/source/p/%{name}/%{name}-%{version}.tar.gz
 BuildArch:        noarch
 
-BuildRequires:  git
+BuildRequires:  git-core
 BuildRequires:  openstack-macros
 
 %description
