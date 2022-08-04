@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97509d4f_31fbfb50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 265
+      },
+      "writtenOn": "2022-08-04T16:40:53Z",
+      "side": 1,
+      "message": "Yep. osprofile is listed in test-requirements.txt, not sure why it\u0027s not in the spec.\n\nThe --profile CLI arg only gets added if osprofiler is installed (which makes sense, no point in exposing args that can\u0027t work on the system), but osprofiler is required in tests-requirements.txt, so the novaclient.tests.unit.test_shell.ShellTest.test_osprofiler unit test just assumes it\u0027s there and tests the --profile CLI arg unconditionally. That test will fail in RPM environments without osprofiler installed.",
+      "revId": "16808b4c307efd75b48b747d4efd8098ac3b5e70",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
