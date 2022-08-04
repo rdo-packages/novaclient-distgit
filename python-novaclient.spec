@@ -55,6 +55,7 @@ BuildRequires:    python3-openstackdocstheme
 BuildRequires:    python3-oslo-utils
 BuildRequires:    python3-keystoneauth1
 BuildRequires:    python3-oslo-serialization
+BuildRequires:    python3-osprofiler
 BuildRequires:    python3-prettytable
 
 %description      doc
