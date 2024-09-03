@@ -1,0 +1,8 @@
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Code-Review+2: Karolina Kula <kkula@redhat.com>
+Workflow+1: Karolina Kula <kkula@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Tue, 03 Sep 2024 11:52:36 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/novaclient-distgit/+/54249
+Project: openstack/novaclient-distgit
+Branch: refs/heads/rpm-master
