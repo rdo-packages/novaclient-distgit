@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x5d2d1e4fb8d38e6af76c50d53d4fec30cf5ce3da
+%global sources_gpg_sign 0xf8675126e2411e7748dd46662fc2093e4682645f
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order whereto
@@ -18,8 +18,8 @@ the OpenStack Nova API.
 
 Name:             python-novaclient
 Epoch:            1
-Version:          XXX
-Release:          XXX
+Version:          18.7.0
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Nova
 License:          Apache-2.0
 URL:              https://launchpad.net/%{name}
@@ -135,3 +135,6 @@ rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo doc/build/html/.htacce
 %endif
 
 %changelog
+* Wed Sep 18 2024 RDO <dev@lists.rdoproject.org> 1:18.7.0-1
+- Update to 18.7.0
+
