@@ -7,6 +7,10 @@
 %if ! 0%{?with_doc}
 %global excluded_brs %{excluded_brs} sphinx openstackdocstheme
 %endif
+# Exclude some BRs for Fedora
+%if 0%{?fedora}
+%global excluded_brs %{excluded_brs} tempest osprofiler
+%endif
 
 %global sname novaclient
 %global with_doc 1
