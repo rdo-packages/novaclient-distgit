@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01d7ad8d_00d280bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 470
+      },
+      "writtenOn": "2024-11-28T00:56:04Z",
+      "side": 1,
+      "message": "FYI this broke the build on EPEL and ELN Extras, as tempest and osprofiler are not available thereon either.  Previously, these were unconditionally excluded, which worked fine.  If that can\u0027t happen, then either this needs to be guarded by (the negation of) an RDO-specific macro, or any of fedora/epel/eln macros.",
+      "revId": "8214510d52546d2fa7c99afbcf7fd0bc296a86c0",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ],
   "submitRequirementResults": []
 }
