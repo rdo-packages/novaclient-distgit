@@ -8,7 +8,7 @@
 %global excluded_brs %{excluded_brs} sphinx openstackdocstheme
 %endif
 # Exclude some BRs for Fedora
-%if 0%{?fedora}
+%if 0%{?fedora} || 0%{?epel} || 0%{?eln}
 %global excluded_brs %{excluded_brs} tempest osprofiler
 %endif
 
